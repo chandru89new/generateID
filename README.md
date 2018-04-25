@@ -27,7 +27,7 @@ If you're into the `async/await` fad, you can do it like so:
 ```
 var options; // options is an object that has "type" and "length" [explained further down this readme]
 // options.type = "alphanumeric";
-// options.length = "32";
+// options.length = 32;
 var someFunc = async function(opts){
     var result = await generateID(opts);
 }
@@ -69,6 +69,8 @@ If you don't give a type or give something else other than these, the default [a
 Should be between 4 and 64. (both included)
 
 If not given or given something outside the range (or invalid stuff), the default [64] will be used.
+
+You can do this too: `options.length = "44";` (that is, pass a number as string). The library uses parseInt() to convert things thrown at it into an integer.
 
 ## Licence
 

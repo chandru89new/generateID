@@ -51,7 +51,7 @@
             Type should be 'alpha', 'loweralpha', 'numeric', 'alphanumeric' or 'loweralphanumeric'. If anything else, it defaults to 'alphanumeric'.
         </p>
         <p>
-            (The library has a dummy function that checks for 'O' in the generate ID and throws error if there isn't an 'O'. This is for demo. Read the ramble about async/await (link below) to know more.)
+            (The library has a dummy function that checks for the letter 'o' in the generate ID and throws error if there isn't an 'o'. This is for demo. Read the ramble about async/await (link below) to know more.)
         </p>
         <p>
             <input type="number" placeholder="length of the string" id="length" />
@@ -96,7 +96,7 @@
                     }
                     catch(err) {
                         console.warn(err);
-                        resultElem.text("Try again. Generated ID did not have the character 'O' [caps o]");
+                        resultElem.text("Try again. Generated ID did not have the letter 'o'");
                     }
                 }
                 showResult(options);

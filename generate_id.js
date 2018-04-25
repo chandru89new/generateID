@@ -54,11 +54,11 @@ function generateID(options) {
 
         // this is where you would add your function to validate the generated Id for things (like "uniqueness" if you are using the generated ID as a primary key value)
         var checkO = function (){
-            if (result.indexOf('O') > -1) {
+            if (result.indexOf('o') > -1) {
                 resolve(result);
             }
             else {
-                reject("Try again. Generated Id did not have the character 'O' [caps o]");
+                reject("Try again. Generated Id did not have the letter 'o");
             }
         }
         checkO();
