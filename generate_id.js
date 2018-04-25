@@ -15,30 +15,30 @@ function generateID(options) {
         if (options) {
             
             // enforce length
-            if (options.length && options.length != undefined && options.length >= 4 && options.length <= 64) {
+            if (options.length && options.length != undefined && parseInt(options.length) >= 4 && parseInt(options.length) <= 64) {
                 length = options.length;
             }
             
             // get options.type
             switch (options.type) {
                 case 'loweralpha':
-                chars = 'abcdefghijklmnopqrstuvwxyz'.split('');
-                break;
+                    chars = 'abcdefghijklmnopqrstuvwxyz'.split('');
+                    break;
                 case 'alpha':
-                chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
-                break;
+                    chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+                    break;
                 case 'loweralphanumeric':
-                chars = 'abcdefghijklmnopqrstuvwxyz1234567890'.split('');
-                break;
+                    chars = 'abcdefghijklmnopqrstuvwxyz1234567890'.split('');
+                    break;
                 case 'alphanumeric':
-                chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'.split('');
-                break;
+                    chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'.split('');
+                    break;
                 case 'numeric':
-                chars = '1234567890'.split('');
-                break;
+                    chars = '1234567890'.split('');
+                    break;
                 default:
-                chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'.split('');
-                break;
+                    chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'.split('');
+                    break;
             }
         }    
         
