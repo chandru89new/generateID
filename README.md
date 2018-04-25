@@ -1,79 +1,72 @@
-## What's this? 
+## What's this?
 
-A simple library you can use in your apps to generate strings of random characters. 
+A random string generator. (Yes, there are lots of them, but this was built as a learning exercise).
 
-Comes in handy for things like generating primary keys, or simple auth tokens.
+## Demo
 
-## Demo?
+[Right here][0]
 
-[Right here][0].
+## How to use it?
 
-## Using it
-
-Call it like so:
+Just like so:
 
 ```
-generateID(options)
-.then(function(result){
-    console.log(result) // result is the generated ID
-})
-.catch(function(error){
-    console.error(error); // in case the ID was not generated for some shitty reason
-});
+var id = ID.generate();
 ```
 
-If you're into the `async/await` fad, you can do it like so:
+Works right out of the box. 
+
+## Where can I use it?
+
+Most likely when you want to create unique IDs for something like users, or links etc.
+
+## How can I make sure the ID is unique?
+
+So you can pass a list of IDs as an array to the library. Like so:
 
 ```
-var options; // options is an object that has "type" and "length" [explained further down this readme]
-// options.type = "alphanumeric";
-// options.length = 32;
-var someFunc = async function(opts){
-    var result = await generateID(opts);
-}
-someFunc(options);
-// console.log(result);
+ID.list = ['...','...','...'];
+ID.generate();
 ```
 
-## Options?
-
-By default, the generateID function will produce a string that's:
-- alphanumeric
-- 64 chars long
-
-You can change both those things by passing an object like so:
+Or
 
 ```
-var options = {
-    type: 'loweralpha',
-    length: 24
-};
-// now call generateID(options)
+var arr = [...]; // this is some array that you build. Like an array of all existing userIDs in your table
+ID.list = arr;
+ID.generate();
 ```
 
-^ That will produce a string that has only lowercase alphabets (loweralpha) and 24 characters long.
+ID will automatically check if the generated ID is already in the list of IDs you fed into ID.list. If yes, it will re-generate another ID till it creates an ID that's unique.
 
-### Options.type
+## Options
 
-Can be any of these:
-- loweralpha
-- alpha
-- numeric
-- loweralphanumeric
-- alphanumeric
+When you use `ID.generate()` just like that, you get a 64-character long alphanumeric (with upper- and lower-case letters).
 
-If you don't give a type or give something else other than these, the default [alphanumeric] will be used.
+You can configure the length and the type of a string you want.
 
-### Options.length
+#### Type:
 
-Should be between 4 and 64. (both included)
+```
+ID.type = 'loweralpha';
+```
 
-If not given or given something outside the range (or invalid stuff), the default [64] will be used.
+| Type | Explanation | Example (length = 16) |
+| ---- | ----------- | --------------------- |
+| alphanumeric | lower and upper case alphabets + numbers (0-9) | GejPA8BmYh55GuYU |
+| loweralphanumeric | lowercase alphabets + numbers | djnzzm1eh7p1n82e |
+| alpha | lower and upper case alphabets only | KmIQCOvZzLVHiIZw |
+| numeric | numbers only | 8759684248582452 |
+| loweralpha | lower case alphabets only | civjbazwxbwbaqgw |
 
-You can do this too: `options.length = "44";` (that is, pass a number as string). The library uses parseInt() to convert things thrown at it into an integer.
+#### Length:
+
+Default is 64. You can give a number between 4 and 64 (both included). Anything off this will result in fallback to the default (64).
+
+```
+ID.length = 24;
+```
 
 ## Licence
 
-Seriously? For this thing?
-
-[0]: http://druchan.com/gen_id/
+No warranties whatsoever. Other than that, do whatever you want; no credits required.

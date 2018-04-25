@@ -6,9 +6,13 @@
     <!-- <meta http-equiv="X-UA-Compatible" content="ie=edge"> -->
     <title>Generate Random Id</title>
     <style>
+        :root {
+            --baseSize: 15px;
+        }
         *, html, body {
             margin: 0; padding: 0;
             box-sizing: border-box;
+            font-family: sans-serif;
         }
         #app {
             width: 500px;
@@ -17,20 +21,20 @@
         @media (max-width: 500px) {
             #app {
                 max-width: 100%;
-                padding: 15px;
+                padding: var(--baseSize);
                 margin: 0 auto;
             }
         }
         p {
-            font-size: 16px;
-            font-family: sans-serif;
+            font-size: var(--baseSize);
             line-height: 1.5;
-            padding: 15px;
+            padding: var(--baseSize);
         }
         input {
-            padding: 10px;
+            padding: var(--baseSize);
             font-family: inherit;
             font-size: inherit;
+            margin-top: var(--baseSize);
         }
         a {
             color: green;
@@ -47,59 +51,40 @@
 <body>
     <div id="app">
         <p>
-            Length should be >= 4 and <= 64 (if not, length defaults to 64) <br>
-            Type should be 'alpha', 'loweralpha', 'numeric', 'alphanumeric' or 'loweralphanumeric'. If anything else, it defaults to 'alphanumeric'.
-        </p>
-        <p>
-            (The library has a dummy function that checks for the letter 'o' in the generate ID and throws error if there isn't an 'o'. This is for demo. Read the ramble about async/await (link below) to know more.)
-        </p>
-        <p>
-            <input type="number" placeholder="length of the string" id="length" />
-        </p>
-        <p>
-            <input list="stringType" id="type" placeholder="type">
-            <datalist id="stringType">
+            ID.type: <br>
+            <input list="IDtype" id="type">
+            <datalist id="IDtype">
+                <option value="alphanumeric">
+                <option value="loweralphanumeric">
                 <option value="alpha">
                 <option value="loweralpha">
                 <option value="numeric">
-                <option value="alphanumeric">
-                <option value="loweralphanumeric">
             </datalist>
         </p>
         <p>
-            <a href="#" id="generateID">Generate Id</a>
+            ID.length: <br>
+            <input type="number" min="0" id="length">
         </p>
         <p>
-            <span id="id"></span>
+            <a href="javascript:void(0)" id="generateID">GenerateID</a>
         </p>
+        <p>
+            ID: <span id="generatedID"></span>
+        </p>
+        
         <hr>
-        <p><a href="http://notes.druchan.com/post/173283227874/half-cooked-asyncawait">If you'd like to waste your time on an async/await ramble.</a></p>
+
+
     </div>
     <script src="https://unpkg.com/jquery"></script>
-    <script src="generate_id.js"></script>
+    <script src="gen_id.js"></script>
     <script>
         $(document).ready(function(){
-            var elem = $('#generateID');
-            var resultElem = $('#id');
-            var options = {};
-            elem.click(function(){
-                // set the options
-                // then print the result
-                options.length = $('input#length').val();
-                options.type = $('input#type').val();
-                // we're using the async/await method to
-                // make sure we get the result
-                async function showResult(options){
-                    try {
-                        var result = await generateID(options);
-                        resultElem.text(result);
-                    }
-                    catch(err) {
-                        console.warn(err);
-                        resultElem.text("Try again. Generated ID did not have the letter 'o'");
-                    }
-                }
-                showResult(options);
+            $('#generateID').click(function(){
+                ID.type = $.trim($('#type').val());
+                ID.length = $.trim($('#length').val());
+                // console.log(ID.generate());
+                $('#generatedID').text(ID.generate());
             });
         });
     </script>
