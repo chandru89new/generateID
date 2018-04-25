@@ -70,3 +70,5 @@ ID.length = 24;
 ## Licence
 
 No warranties whatsoever. Other than that, do whatever you want; no credits required.
+
+[0]:http://druchan.com/gen_id
