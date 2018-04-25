@@ -16,6 +16,19 @@ var id = ID.generate();
 
 Works right out of the box. 
 
+If NPM:
+
+```
+npm install --save uneeqid
+```
+
+then:
+
+```
+var ID = require('uneeqid');
+ID.generate();
+```
+
 ## Where can I use it?
 
 Most likely when you want to create unique IDs for something like users, or links etc.
@@ -66,6 +79,23 @@ Default is 64. You can give a number between 4 and 64 (both included). Anything 
 ```
 ID.length = 24;
 ```
+
+## Mo' things to do with this:
+
+```
+ID.lastID
+```
+Gives you the last generated ID. Is changed whenever you use ID.generate();
+
+```
+ID.flush()
+```
+Flushes out `ID.list`
+
+```
+ID.reset()
+```
+Resets everything (type, length, list, lastID).
 
 ## Licence
 
