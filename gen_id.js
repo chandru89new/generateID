@@ -51,12 +51,11 @@ var ID = {
                 var _chars = _lowerAlpha + _capsAlpha + _numbers;
                 break;
         }
-        _chars = _chars.split('');
 
         var _result = '';
         for (i = 0; i < this.length; i++) {
-            var c = Math.floor(Math.random()*_chars.length);
-            _result = _result + _chars[c];
+            var c = _chars[Math.floor(Math.random()*_chars.length)];
+            _result = _result + c;
         }
 
         // checking if the generated ID is already in the list
