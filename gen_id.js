@@ -66,7 +66,7 @@ var ID = {
             return _result;
         }
         else {
-            this.generate();
+            return this.generate();
         }
     },
     flush: function(){
