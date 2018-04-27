@@ -16,7 +16,7 @@ var ID = {
             this.type = 'alphanumeric'
         }
 
-        if (!this.length || this.length < 4 || this.length > 64) {
+        if (!this.length || this.length < 4 || this.length > 512) {
             this.length = 64;
         }
 
