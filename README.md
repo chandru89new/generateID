@@ -74,10 +74,10 @@ ID.type = 'loweralpha';
 
 #### Length:
 
-Default is 64. You can give a number between 4 and 64 (both included). Anything off this will result in fallback to the default (64).
+Default is 64. You can give a number between 4 and 512 (both included). Anything off this will result in fallback to the default (64).
 
 ```
-ID.length = 24;
+ID.length = 128;
 ```
 
 ## Mo' things to do with this:
