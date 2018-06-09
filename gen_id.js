@@ -11,7 +11,7 @@ var ID = {
             // if yes, regenerate ID
         // return ID
 
-        var _type = ['numeric', 'alphanumeric', 'alpha', 'loweralpha', 'loweralphanumeric'];
+        var _type = ['numeric', 'alphanumeric', 'alpha', 'loweralpha', 'loweralphanumeric', 'alphasymbol', 'loweralphasymbol', 'alphanumericsymbol', 'loweralphanumericsymbol'];
         if (_type.indexOf(this.type) < 0) {
             this.type = 'alphanumeric'
         }
@@ -30,6 +30,7 @@ var ID = {
         var _lowerAlpha = 'abcdefghijklmnopqrstuvwxyz',
             _capsAlpha = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
             _numbers = '0123456789';
+            _symbols = "~!@#$%^*()=_.?+-"
 
         switch (this.type) {
             case 'numeric':
@@ -38,14 +39,26 @@ var ID = {
             case 'alpha':
                 var _chars = _lowerAlpha + _capsAlpha;
                 break;
-            case 'alphanumeric':
-                var _chars = _lowerAlpha + _capsAlpha + _numbers;
-                break;
             case 'loweralpha':
                 var _chars = _lowerAlpha;
                 break;
+            case 'alphanumeric':
+                var _chars = _lowerAlpha + _capsAlpha + _numbers;
+                break;
             case 'loweralphanumeric':
                 var _chars = _lowerAlpha + _numbers;
+                break;
+            case 'alphasymbol':
+                var _chars = _lowerAlpha + _capsAlpha + _symbols;
+                break;
+            case 'loweralphasymbol':
+                var _chars = _lowerAlpha + _symbols;
+                break;
+            case 'alphanumericsymbol':
+                var _chars = _lowerAlpha + _capsAlpha + _numbers + _symbols;
+                break;
+            case 'loweralphanumericsymbol':
+                var _chars = _lowerAlpha + _numbers + _symbols;
                 break;
             default:
                 var _chars = _lowerAlpha + _capsAlpha + _numbers;
