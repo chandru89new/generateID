@@ -71,6 +71,10 @@ ID.type = 'loweralpha';
 | alpha | lower and upper case alphabets only | KmIQCOvZzLVHiIZw |
 | numeric | numbers only | 8759684248582452 |
 | loweralpha | lower case alphabets only | civjbazwxbwbaqgw |
+| alphasymbol | alphabets and symbols | tlqQ_zXWa=l+ACFB |
+| loweralphasymbol | lower case alphabets and symbols | @dw%uq$ms~i!$x)m |
+| alphanumericsymbol | alphabets numbers and symbols | R^O=1Rz~A!qFB~58 |
+| loweralphanumericsymbol | lower case alphabets, numbers and symbols | ?ucprlw)yut8$_wj |
 
 #### Length:
 
