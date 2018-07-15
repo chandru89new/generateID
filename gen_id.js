@@ -15,8 +15,7 @@ var ID = {
         if (_type.indexOf(this.type) < 0) {
             this.type = 'alphanumeric'
         }
-
-        if (!this.length || this.length < 4 || this.length > 512) {
+        if (!this.length || this.length < 4 || this.length > 512 || typeof(this.length) != 'number') {
             this.length = 64;
         }
 
